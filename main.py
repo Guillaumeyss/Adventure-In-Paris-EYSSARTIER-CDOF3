@@ -1,4 +1,11 @@
 
+
+
+def intro():
+    print("Hello "+name)
+
+
+
 if __name__ == "__main__":
   while True:
     print("Welcome to my Text based Adventure Game")
@@ -8,3 +15,6 @@ if __name__ == "__main__":
     print("But first, let me know what is your name: ")
     name = input()
     print("Good luck, " +name+ ".")
+    intro()
+
+
