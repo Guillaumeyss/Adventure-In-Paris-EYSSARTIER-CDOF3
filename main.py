@@ -1,4 +1,4 @@
-
+import os
 
 inventory = []
 
@@ -13,6 +13,7 @@ def display_inventory():
     print("Your current inventory: ", inventory)
 
 def intro():
+    os.system('cls')
     global inventory
     print("Hello "+name)
     print("Here is your first choice, do you want to have a knife or a gun ?")
@@ -36,6 +37,7 @@ def intro():
     first_scene()
     
 def first_scene():
+    os.system('cls')
     displayPerson()
     print("Solve this enigma and I will let you pass, otherwise you will have to give me your inventory !")
     print("\nI fly without wings. I cry without eyes.")
@@ -59,13 +61,21 @@ def first_scene():
         
 
 
+def Menu_Screen():
+    os.system('cls')
+    print(15*"-"+"\t WELCOME TO ADVENTURE IN PARIS \t"+15*"-"+"\n")
 
-
+def End_Screen(end):
+    print(15*"-"+"\t Thank you for playing my game \t"+15*"-"+"\n")
+    print('\n\n\nCredit : Guillaume "Beau Gosse" Eyssartier\n\n')
+    return True
 
 
 
 if __name__ == "__main__":
-  while True:
+  end = False
+  Menu_Screen()
+  while end==False:
     print("Welcome to my Text based Adventure Game")
     print("You will travel in the shadows of Paris !")
     print("During your travel, you will have multiple decisions to take in order to stay alive.")
@@ -74,5 +84,6 @@ if __name__ == "__main__":
     name = input()
     print("Good luck, " +name+ ".")
     intro()
+    end = End_Screen(end)
 
 
