@@ -18,21 +18,48 @@ def intro():
     print("Here is your first choice, do you want to have a knife or a gun ?")
     print ("1 - knife")
     print("2 - gun")
-    choice = input("Enter your choice (1 or 2): ")
-    if choice == "1":
-        inventory.append("knife")
-        print("You chose a knife. It has been added to your inventory.")
-    elif choice == "2":
-        inventory.append("gun")
-        print("You chose a gun. It has been added to your inventory.")
-    else:
-        print("Invalid choice. Please enter 1 or 2.")
+    while(True):
+        choice = input("Enter your choice (1 or 2): ")
+
+        if choice == "1":
+          inventory.append("knife")
+          print("You chose a knife. It has been added to your inventory.")
+          break
+        elif choice == "2":
+          inventory.append("gun")
+          print("You chose a gun. It has been added to your inventory.")
+          break
+        else:
+          print("Invalid choice. Please enter 1 or 2.")
     display_inventory()
     print("I would have chosen the other one but ... it's your choice ! Maybe you are right, maybe...")
     first_scene()
     
 def first_scene():
     displayPerson()
+    print("Solve this enigma and I will let you pass, otherwise you will have to give me your inventory !")
+    print("\nI fly without wings. I cry without eyes.")
+    print("Wherever I go, darkness follows me.")
+    print("What am I?\n")
+    cpt=2
+
+    while(cpt!=-1):
+        choice = input("Enter your answer : ")
+        answer=choice.lower()
+
+        if answer == "cloud":
+          print("nice one")
+          break
+        elif answer == "clouds":
+          print("Nice one !")
+          break
+        else:
+          print("Hmmm no that is not the good answer ",cpt, " tries remaining...")
+          cpt=cpt-1
+        
+
+
+
 
 
 
