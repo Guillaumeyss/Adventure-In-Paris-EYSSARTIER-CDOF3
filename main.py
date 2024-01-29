@@ -2,7 +2,8 @@ import os
 
 inventory = []
 
-def displayPerson() :
+def displayPerson(withHat=False) :
+    if withHat: print(" _□_")
     print("  O")
     print(" /|\\")
     print(" / \\")
@@ -38,11 +39,11 @@ def intro():
     
 def first_scene():
     os.system('cls')
-    displayPerson()
-    print("Solve this enigma and I will let you pass, otherwise you will have to give me your inventory !")
-    print("\nI fly without wings. I cry without eyes.")
-    print("Wherever I go, darkness follows me.")
-    print("What am I?\n")
+    displayPerson(withHat=True)
+    print('"Solve this enigma and I will let you pass, otherwise you will have to give me your inventory !"')
+    print('\n"I fly without wings. I cry without eyes.')
+    print('Wherever I go, darkness follows me.')
+    print('What am I?"\n')
     cpt=2
 
     while(cpt!=-1):
@@ -50,15 +51,33 @@ def first_scene():
         answer=choice.lower()
 
         if answer == "cloud":
-          print("nice one")
+          print('"nice one"')
           break
         elif answer == "clouds":
-          print("Nice one !")
+          print('"Nice one !"')
           break
+        elif answer == "use knife" and "knife" in inventory:
+           print("You stabbed the riddler and stole his inventory")
+           print("In it you found a funny hat")
+           inventory.append("funny hat")
+           display_inventory()
+           break
+        elif answer == "use gun" and "gun" in inventory:
+           print("You tried to shoot the riddler to get away from this situation")
+           print("You don't have any bullets with that gun. Maybe you should have thought about that before pulling a weapon on a stranger...")
+           print("The riddler is not impressed and takes away one of your tries")
+           print('"...let this be a lesson for you..."')
+           cpt=cpt-1
         else:
-          print("Hmmm no that is not the good answer ",cpt, " tries remaining...")
+          print(f'"Hmmm no that is not the good answer {cpt} tries remaining..."')
           cpt=cpt-1
-        
+    
+    if cpt==-1:
+       print('"Hahaha ! You failed the simplest riddle possible, and you think you have a chance in this world ?"')
+       print('"A promise is a promise, stand your ground, and give me your inventory you filth !"')
+       print("The riddler steals all of your inventory and runs away smiling machiavellically")
+       inventory.clear()
+
 
 
 def Menu_Screen():
