@@ -36,6 +36,7 @@ def intro():
     display_inventory()
     print("I would have chosen the other one but ... it's your choice ! Maybe you are right, maybe...")
     first_scene()
+    second_scene()
     
 def first_scene():
     os.system('cls')
@@ -79,6 +80,36 @@ def first_scene():
        inventory.clear()
 
 
+def second_scene():
+    os.system('cls')
+    displayPerson(withHat=True)
+    print("Well done on solving the first riddle! But don't rest on your laurels. Here comes the next challenge.")
+    print('\n"I start with \'T\', I end with \'T\', and I\'m full of \'T\'.')
+    print('What am I?"\n')
+    cpt=2
+
+    while(cpt!=-1):
+        choice = input("Enter your answer: ")
+        answer=choice.lower()
+
+        if answer == "teapot":
+            print('"Well played! You solved the riddle with ease."')
+            break
+        elif answer == "use gun" and "gun" in inventory:
+            print("You tried to shoot the riddler to get away from this situation")
+            print("You don't have any bullets with that gun. Maybe you should have thought about that before pulling a weapon on a stranger...")
+            print("The riddler is not impressed and takes away one of your tries")
+            print('"...let this be a lesson for you..."')
+            cpt = cpt - 1
+        else:
+            print(f'"No, that\'s not the right answer. You have {cpt} attempts left..."')
+            cpt = cpt - 1
+
+    if cpt == -1:
+        print('"Too bad, you couldn\'t solve the riddle. The path ahead is now closed."')
+        print('"Better luck next time," says the character as they vanish into the shadows.')
+        print("You feel a sense of loss as the opportunity slips away.")
+
 
 def Menu_Screen():
     os.system('cls')
@@ -88,7 +119,6 @@ def End_Screen(end):
     print(15*"-"+"\t Thank you for playing my game \t"+15*"-"+"\n")
     print('\n\n\nCredit : Guillaume "Beau Gosse" Eyssartier\n\n')
     return True
-
 
 
 if __name__ == "__main__":
