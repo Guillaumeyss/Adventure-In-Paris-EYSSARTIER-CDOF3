@@ -124,7 +124,7 @@ def End_Screen(end):
 if __name__ == "__main__":
   end = False
   Menu_Screen()
-  while not end:
+  while end==False:
     print("Welcome to my Text based Adventure Game")
     print("You will travel in the shadows of Paris !")
     print("During your travel, you will have multiple decisions to take in order to stay alive.")
